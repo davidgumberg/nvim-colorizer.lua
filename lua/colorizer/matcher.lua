@@ -51,6 +51,7 @@ function matcher.compile(matchers, matchers_trie)
 
     -- Prefix 0x, rgba, rgb, rgb: hsla, hsl
     local prefix = trie:longest_prefix(line, i)
+    print(vim.inspect(prefix)) 
     if prefix then
       local fn = "_" .. prefix
       if parser[fn] then
@@ -146,12 +147,12 @@ function matcher.make(options)
     table.insert(matchers_prefix, "rgba")
     table.insert(matchers_prefix, "rgb")
     table.insert(matchers_prefix, "hsl")
-    table.insert(matchers_prefix, "rgb\:")
+    table.insert(matchers_prefix, "rgb:")
     table.insert(matchers_prefix, "rgbx")
   elseif enable_rgb then
     table.insert(matchers_prefix, "rgba")
     table.insert(matchers_prefix, "rgb")
-    table.insert(matchers_prefix, "rgb\:")
+    table.insert(matchers_prefix, "rgb:")
     table.insert(matchers_prefix, "rgbx")
   elseif enable_hsl then
     table.insert(matchers_prefix, "hsla")
