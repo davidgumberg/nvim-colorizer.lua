@@ -20,6 +20,7 @@ local parser = {
   ["_rgb"] = rgb_function_parser,
   ["_rgb:"] = rgb_function_parser,
   ["_rgba"] = rgb_function_parser,
+  ["_rgbx"] = rgb_function_parser,
   ["_hsl"] = hsl_function_parser,
   ["_hsla"] = hsl_function_parser,
 }
@@ -146,9 +147,12 @@ function matcher.make(options)
     table.insert(matchers_prefix, "rgb")
     table.insert(matchers_prefix, "hsl")
     table.insert(matchers_prefix, "rgb:")
+    table.insert(matchers_prefix, "rgbx")
   elseif enable_rgb then
     table.insert(matchers_prefix, "rgba")
     table.insert(matchers_prefix, "rgb")
+    table.insert(matchers_prefix, "rgb:")
+    table.insert(matchers_prefix, "rgbx")
   elseif enable_hsl then
     table.insert(matchers_prefix, "hsla")
     table.insert(matchers_prefix, "hsl")

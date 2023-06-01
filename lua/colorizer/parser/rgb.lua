@@ -20,8 +20,6 @@ function parser.rgb_function_parser(line, i, opts)
 
   if opts.prefix == "rgb" then
     min_len = CSS_RGB_FN_MINIMUM_LENGTH
-  elseif opts.prefix == "rgb:" then
-    min_len = CSS_RGB_FN_MINIMUM_LENGTH + 1
   end
 
   if #line < i + min_len then
