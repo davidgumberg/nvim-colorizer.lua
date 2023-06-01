@@ -33,7 +33,7 @@ local matcher = {}
 ---@return function: function which will just parse the line for enabled parsers
 function matcher.compile(matchers, matchers_trie)
   local trie = Trie(matchers_trie)
-  print(vim.inspect(trie))
+  print(vim.inspect(matchers_trie))
 
   local function parse_fn(line, i, buf)
     -- prefix #
