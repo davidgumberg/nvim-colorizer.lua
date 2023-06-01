@@ -33,6 +33,7 @@ local matcher = {}
 ---@return function: function which will just parse the line for enabled parsers
 function matcher.compile(matchers, matchers_trie)
   local trie = Trie(matchers_trie)
+  print(vim.inspect(trie))
 
   local function parse_fn(line, i, buf)
     -- prefix #
@@ -50,8 +51,6 @@ function matcher.compile(matchers, matchers_trie)
     end
 
     -- Prefix 0x, rgba, rgb, rgb: hsla, hsl
-    print(vim.inspect(line)) 
-    print(vim.inspect(i)) 
     local prefix = trie:longest_prefix(line, i)
     -- print(vim.inspect(prefix)) 
     if prefix then
