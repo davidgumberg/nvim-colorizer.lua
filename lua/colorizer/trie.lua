@@ -87,10 +87,10 @@ local function trie_insert(trie, value)
       print(vim.inspect(index))
     end
     if index == total_char then
-      print("Huuuh!")
       return false
     end
     if node.character[index] == nil then
+      print("we gothere .... ")
       node.character[index] = trie_create()
     end
     node = node.character[index]
