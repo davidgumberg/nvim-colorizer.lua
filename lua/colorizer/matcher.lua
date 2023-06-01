@@ -51,6 +51,7 @@ function matcher.compile(matchers, matchers_trie)
 
     -- Prefix 0x, rgba, rgb, rgb: hsla, hsl
     print(vim.inspect(line)) 
+    print(vim.inspect(i)) 
     local prefix = trie:longest_prefix(line, i)
     -- print(vim.inspect(prefix)) 
     if prefix then
