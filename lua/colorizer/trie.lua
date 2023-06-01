@@ -85,6 +85,7 @@ local function trie_insert(trie, value)
     local index = INDEX_LOOKUP_TABLE[value:byte(i)]
     if(value == "rgb:") then
       print(vim.inspect(index))
+    end
     if index == total_char then
       return false
     end
