@@ -18,6 +18,7 @@ local B_HASH, DOLLAR_HASH = ("#"):byte(), ("$"):byte()
 local parser = {
   ["_0x"] = argb_hex_parser,
   ["_rgb"] = rgb_function_parser,
+  ["_rgb:"] = rgb_function_parser,
   ["_rgba"] = rgb_function_parser,
   ["_hsl"] = hsl_function_parser,
   ["_hsla"] = hsl_function_parser,
@@ -47,7 +48,7 @@ function matcher.compile(matchers, matchers_trie)
       end
     end
 
-    -- Prefix 0x, rgba, rgb, hsla, hsl
+    -- Prefix 0x, rgba, rgb, rgb: hsla, hsl
     local prefix = trie:longest_prefix(line, i)
     if prefix then
       local fn = "_" .. prefix
