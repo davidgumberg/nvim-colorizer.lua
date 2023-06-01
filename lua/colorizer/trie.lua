@@ -63,12 +63,12 @@ do
     if i >= byte["0"] and i <= byte["9"] then
       INDEX_LOOKUP_TABLE[i] = i - byte["0"]
     elseif i >= byte["A"] and i <= byte["Z"] then
+      print(vim.inspect(i) .. "has produced gutness") 
       INDEX_LOOKUP_TABLE[i] = i - byte["A"] + 10
     elseif i >= byte["a"] and i <= byte["z"] then
       INDEX_LOOKUP_TABLE[i] = i - byte["a"] + 10 + 26
     elseif extra_char[i] then
     else
-      print(vim.inspect(i) .. "has produced nastiness") 
       INDEX_LOOKUP_TABLE[i] = total_char
     end
   end
