@@ -68,6 +68,7 @@ do
       INDEX_LOOKUP_TABLE[i] = i - byte["a"] + 10 + 26
     elseif extra_char[i] then
     else
+      print(vim.inspect(i) .. "has produced nastiness") 
       INDEX_LOOKUP_TABLE[i] = total_char
     end
   end
