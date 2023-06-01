@@ -75,6 +75,7 @@ do
 end
 
 local function trie_insert(trie, value)
+  print(vim.inspect(value) .. "\n" )
   if trie == nil then
     return false
   end
