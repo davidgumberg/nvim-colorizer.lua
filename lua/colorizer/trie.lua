@@ -57,13 +57,13 @@ do
   local b = string.byte
   local extra_char = {
     [b "-"] = true,
+    [b ":"] = true,
   }
   local byte = { ["0"] = b "0", ["9"] = b "9", ["a"] = b "a", ["A"] = b "A", ["z"] = b "z", ["Z"] = b "Z" }
   for i = 0, total_char do
     if i >= byte["0"] and i <= byte["9"] then
       INDEX_LOOKUP_TABLE[i] = i - byte["0"]
     elseif i >= byte["A"] and i <= byte["Z"] then
-      print(vim.inspect(i) .. "has produced gutness") 
       INDEX_LOOKUP_TABLE[i] = i - byte["A"] + 10
     elseif i >= byte["a"] and i <= byte["z"] then
       INDEX_LOOKUP_TABLE[i] = i - byte["a"] + 10 + 26
@@ -80,6 +80,7 @@ local function trie_insert(trie, value)
   end
   local node = trie
   for i = 1, #value do
+    print(vim.inspect(i) .. " " )
     local index = INDEX_LOOKUP_TABLE[value:byte(i)]
     if index == total_char then
       return false
@@ -89,6 +90,7 @@ local function trie_insert(trie, value)
     end
     node = node.character[index]
   end
+  print("\n\n\n")
   node.is_leaf = true
   return node, trie
 end
