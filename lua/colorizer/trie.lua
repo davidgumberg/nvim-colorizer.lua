@@ -52,7 +52,7 @@ end
 
 local total_char = 255
 local INDEX_LOOKUP_TABLE = ffi.new("uint8_t[?]", total_char)
-local CHAR_LOOKUP_TABLE = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-"
+local CHAR_LOOKUP_TABLE = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-:"
 do
   local b = string.byte
   local extra_char = {
